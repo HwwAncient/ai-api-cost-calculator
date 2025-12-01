@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI API Cost Simulator | Calculate LLM Expenses Instantly</title>
-    <meta name="description" content="Free tool to calculate and compare AI API costs (OpenAI, Anthropic, Gemini). Estimate monthly expenses based on MAU and token usage for your SaaS." />
-    <meta name="keywords" content="AI cost calculator, LLM pricing, GPT-4o cost, Claude 3.5 pricing, Gemini API cost, SaaS unit economics" />
-    
+    <meta name="description"
+        content="Free tool to calculate and compare AI API costs (OpenAI, Anthropic, Gemini). Estimate monthly expenses based on MAU and token usage for your SaaS." />
+    <meta name="keywords"
+        content="AI cost calculator, LLM pricing, GPT-4o cost, Claude 3.5 pricing, Gemini API cost, SaaS unit economics" />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aicostsimulator.com/" />
     <meta property="og:title" content="AI API Cost Simulator | Calculate LLM Expenses" />
-    <meta property="og:description" content="Estimate your AI infrastructure costs before you build. Compare GPT-4o, Claude 3.5, and Gemini 1.5 prices." />
+    <meta property="og:description"
+        content="Estimate your AI infrastructure costs before you build. Compare GPT-4o, Claude 3.5, and Gemini 1.5 prices." />
     <meta property="og:image" content="https://picsum.photos/1200/630" />
 
     <!-- Twitter -->
@@ -23,20 +27,20 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              slate: {
-                850: '#151b2b',
-              }
-            },
-            fontFamily: {
-              sans: ['Inter', 'system-ui', 'sans-serif'],
-            },
-          }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            850: '#151b2b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
         }
-      }
     </script>
 
     <!-- JSON-LD Schema for Software Application -->
@@ -55,19 +59,11 @@
       "description": "A calculator tool for developers to estimate monthly costs of using Large Language Model APIs like OpenAI GPT-4, Anthropic Claude, and Google Gemini."
     }
     </script>
-  <script type="importmap">
-{
-  "imports": {
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "recharts": "https://aistudiocdn.com/recharts@^3.5.1"
-  }
-}
-</script>
 </head>
-  <body class="bg-slate-50 text-slate-900 antialiased selection:bg-indigo-100 selection:text-indigo-900">
+
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-indigo-100 selection:text-indigo-900">
     <div id="root"></div>
-  </body>
+    <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>
