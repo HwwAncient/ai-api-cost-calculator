@@ -1,54 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AI API Cost Simulator | Calculate LLM Expenses Instantly</title>
-    <meta name="description"
-        content="Free tool to calculate and compare AI API costs (OpenAI, Anthropic, Gemini). Estimate monthly expenses based on MAU and token usage for your SaaS." />
-    <meta name="keywords"
-        content="AI cost calculator, LLM pricing, GPT-4o cost, Claude 3.5 pricing, Gemini API cost, SaaS unit economics" />
-
+    <title>AI API Cost Calculator | SaaS Unit Economics & Pricing</title>
+    <meta name="description" content="The professional AI API Cost Calculator. Estimate Monthly Active User (MAU) costs, unit economics, and burn rate for OpenAI GPT, Anthropic Claude, and Google Gemini APIs." />
+    <meta name="keywords" content="AI cost calculator, LLM api pricing, GPT-5 cost estimator, Claude 4.5 pricing calculator, Gemini 3 API cost, SaaS unit economics, token calculator" />
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://aicostsimulator.com/" />
-    <meta property="og:title" content="AI API Cost Simulator | Calculate LLM Expenses" />
-    <meta property="og:description"
-        content="Estimate your AI infrastructure costs before you build. Compare GPT-4o, Claude 3.5, and Gemini 1.5 prices." />
+    <meta property="og:url" content="https://aiapicalculator.com/" />
+    <meta property="og:title" content="AI API Cost Calculator | Calculate SaaS Unit Economics" />
+    <meta property="og:description" content="Transparently calculate your AI infrastructure costs. Compare models like GPT-5 and Gemini 3 to find your break-even point." />
     <meta property="og:image" content="https://picsum.photos/1200/630" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="AI API Cost Simulator" />
+    <meta property="twitter:title" content="AI API Cost Calculator" />
     <meta property="twitter:description" content="Estimate your AI infrastructure costs before you build." />
     <meta property="twitter:image" content="https://picsum.photos/1200/630" />
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        slate: {
-                            850: '#151b2b',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                }
-            }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              slate: {
+                850: '#151b2b',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+          }
         }
+      }
     </script>
 
+    <style>
+      /* 
+       * Global scroll behavior fix:
+       * Disables the browser's default "swipe left/right to navigate history" gesture.
+       * This is crucial for wide tables on Mac trackpads, preventing accidental 
+       * page navigation when trying to scroll the table horizontally.
+       */
+      html, body {
+        overscroll-behavior-x: none;
+      }
+    </style>
+    
     <!-- JSON-LD Schema for Software Application -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "AI API Cost Simulator",
+      "name": "AI API Cost Calculator",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Web",
       "offers": {
@@ -56,14 +64,22 @@
         "price": "0",
         "priceCurrency": "USD"
       },
-      "description": "A calculator tool for developers to estimate monthly costs of using Large Language Model APIs like OpenAI GPT-4, Anthropic Claude, and Google Gemini."
+      "description": "A calculator tool for developers to estimate monthly costs of using Large Language Model APIs like OpenAI GPT, Anthropic Claude, and Google Gemini."
     }
     </script>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1"
+  }
+}
+</script>
 </head>
-
-<body class="bg-slate-50 text-slate-900 antialiased selection:bg-indigo-100 selection:text-indigo-900">
+  <body class="bg-slate-50 text-slate-900 antialiased selection:bg-indigo-100 selection:text-indigo-900">
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-</body>
-
+  </body>
 </html>

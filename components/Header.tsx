@@ -9,16 +9,12 @@ export const Header: React.FC = () => {
           <div className="bg-indigo-600 p-1.5 rounded-lg">
             <Calculator className="h-5 w-5 text-white" />
           </div>
-          <span className="text-lg font-bold text-slate-900 tracking-tight">AI Cost Sim</span>
+          <span className="text-lg font-bold text-slate-900 tracking-tight">AI API Cost Calculator</span>
         </div>
-        <nav className="hidden md:flex gap-6 text-sm font-medium text-slate-600">
-          <a href="#" className="hover:text-indigo-600 transition-colors">Pricing Data</a>
-          <a href="#" className="hover:text-indigo-600 transition-colors">About</a>
-        </nav>
+        
+        {/* Removed placeholder links to keep the interface professional and production-ready */}
         <div className="flex items-center gap-4">
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="text-sm font-medium text-slate-500 hover:text-slate-900">
-            GitHub
-          </a>
+           {/* Future auth or real links can go here */}
         </div>
       </div>
     </header>

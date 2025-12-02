@@ -1,5 +1,5 @@
 {
-  "name": "AI API Cost Simulator",
+  "name": "AI API Cost Calculator",
   "description": "A professional tool to estimate and compare LLM API costs for developers and founders.",
   "requestFramePermissions": []
 }
