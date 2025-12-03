@@ -65,14 +65,14 @@ export const ComparisonChart: React.FC<ComparisonChartProps> = ({ data }) => {
         <BarChart
           data={data}
           layout="vertical"
-          margin={{ top: 10, right: 30, left: 20, bottom: 20 }}
+          margin={{ top: 10, right: 30, left: 10, bottom: 20 }}
         >
           <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e2e8f0" />
           <XAxis type="number" hide />
           <YAxis 
             type="category" 
             dataKey="modelName" 
-            width={150} 
+            width={180} 
             tick={{ fontSize: 11, fill: '#64748b' }}
             interval={0}
           />
