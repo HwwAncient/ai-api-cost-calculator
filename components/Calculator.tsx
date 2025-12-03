@@ -28,8 +28,11 @@ export const Calculator: React.FC = () => {
   const [activePresetId, setActivePresetId] = useState<string | null>(null);
 
   const handleInputChange = (field: keyof UserInputs, value: number) => {
-    // If user manually changes a value, we are no longer in a "preset" state
-    setActivePresetId(null);
+    // Only clear the preset if the user changes a "Behavioral" input.
+    // MAU is a "Scale" input, so changing it shouldn't detach the behavioral scenario.
+    if (field !== 'mau') {
+      setActivePresetId(null);
+    }
 
     // Enforce limits for active days
     if (field === 'activeDays') {
@@ -39,8 +42,6 @@ export const Calculator: React.FC = () => {
   };
 
   const handleTokenInputChange = (field: 'avgInputTokens' | 'avgOutputTokens', value: number) => {
-    setActivePresetId(null); // Clear preset on manual edit
-    
     // Conversion Logic: 1000 Tokens = 750 Words.
     const finalValue = isWordMode ? Math.round(value / 0.75) : value;
     handleInputChange(field, finalValue);

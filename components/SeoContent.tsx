@@ -51,125 +51,132 @@ export const SeoContent: React.FC = () => {
             <div className="relative z-10 flex flex-col">
               
               {/* Step 1: Volume */}
-              <div className="space-y-4 mb-8">
-                 <h4 className="text-slate-200 text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-amber-400 text-slate-900 flex items-center justify-center text-[10px] font-bold shadow-lg shadow-amber-500/20">1</span>
-                    <span className="text-slate-200">Monthly Volume</span>
-                 </h4>
+              <div className="flex flex-col items-center w-full mb-8">
+                 {/* Step 1 Header - Pill Style */}
+                 <div className="inline-flex items-center gap-2 bg-slate-800 rounded-full px-4 py-1.5 border border-slate-700 shadow-sm mb-4">
+                    <span className="w-5 h-5 rounded-full bg-amber-400 text-slate-900 flex items-center justify-center text-xs font-bold shadow-lg shadow-amber-500/20">1</span>
+                    <span className="text-xs text-slate-200 font-bold uppercase tracking-widest">Monthly Volume</span>
+                 </div>
                  
                  {/* Step 1 Formula */}
-                 <div className="flex justify-center">
-                   <div className="inline-flex flex-wrap items-center justify-center gap-2 bg-slate-800/30 p-2 rounded-lg border border-slate-800 relative z-10 text-sm font-medium">
-                      <div className="bg-indigo-500/10 border border-indigo-500/30 text-indigo-200 px-3 py-1.5 rounded-lg shadow-sm">
+                 <div className="inline-flex flex-wrap items-center justify-center gap-2 bg-slate-800/30 px-6 py-4 rounded-xl border border-slate-700/50 relative z-10">
+                      
+                      {/* Variable: Monthly Users */}
+                      <div className="bg-indigo-500/20 border border-indigo-500/40 text-indigo-100 px-3 py-2 rounded-lg shadow-sm font-mono text-xs font-bold">
                         Monthly Users
                       </div>
 
                       <MathOp icon={<X className="w-3 h-3" />} />
 
-                      <div className="bg-indigo-500/10 border border-indigo-500/30 text-indigo-200 px-3 py-1.5 rounded-lg shadow-sm">
+                      {/* Variable: Active Days */}
+                      <div className="bg-indigo-500/20 border border-indigo-500/40 text-indigo-100 px-3 py-2 rounded-lg shadow-sm font-mono text-xs font-bold">
                         Active Days
                       </div>
 
                       <MathOp icon={<X className="w-3 h-3" />} />
 
-                      <div className="bg-indigo-500/10 border border-indigo-500/30 text-indigo-200 px-3 py-1.5 rounded-lg shadow-sm">
+                      {/* Variable: Daily Requests */}
+                      <div className="bg-indigo-500/20 border border-indigo-500/40 text-indigo-100 px-3 py-2 rounded-lg shadow-sm font-mono text-xs font-bold">
                         Daily Requests
                       </div>
 
                       <MathOp icon={<Equal className="w-3 h-3" />} />
 
-                      <div className="bg-purple-500/20 border-2 border-dashed border-purple-400/50 text-purple-200 px-3 py-1.5 rounded-lg font-bold shadow-sm">
+                      {/* Variable: Total Requests (Consistent Style) */}
+                      <div className="bg-purple-500/20 border-2 border-dashed border-purple-400/50 text-purple-200 px-3 py-2 rounded-lg font-mono text-xs font-bold shadow-sm">
                         Total Requests
                       </div>
-                   </div>
                  </div>
               </div>
-
-              {/* Visual Divider */}
-              <div className="w-full h-px bg-slate-800 mb-8"></div>
 
               {/* Step 2 & 3 Combined Flow Container */}
               <div className="flex flex-col items-center w-full">
                  
-                 {/* Header Step 2 */}
-                 <div className="w-full mb-4">
-                   <h4 className="text-slate-200 text-xs font-bold uppercase tracking-widest flex items-center gap-2">
-                      <span className="w-5 h-5 rounded-full bg-amber-400 text-slate-900 flex items-center justify-center text-[10px] font-bold shadow-lg shadow-amber-500/20">2</span>
-                      <span className="text-slate-200">Monthly Cost Calculation</span>
-                   </h4>
+                 {/* Step 2 Header - Pill Style */}
+                 <div className="inline-flex items-center gap-2 bg-slate-800 rounded-full px-4 py-1.5 border border-slate-700 shadow-sm mb-4">
+                    <span className="w-5 h-5 rounded-full bg-amber-400 text-slate-900 flex items-center justify-center text-xs font-bold shadow-lg shadow-amber-500/20">2</span>
+                    <span className="text-xs text-slate-200 font-bold uppercase tracking-widest">Monthly Cost Calculation</span>
                  </div>
 
                  {/* Formula Line 1: Input Cost */}
-                 <div className="inline-flex flex-wrap items-center justify-center gap-2 bg-slate-800/30 p-2 rounded-lg border border-slate-800 relative z-20 font-mono">
-                      <div className="bg-slate-700/50 border border-slate-600/50 text-slate-300 px-3 py-1.5 rounded-lg text-sm font-bold shadow-sm">
+                 <div className="inline-flex flex-wrap items-center justify-center gap-2 bg-slate-800/30 px-3 py-2 rounded-lg border border-slate-800 relative z-20 font-mono">
+                      {/* Dashed Border for Intermediate Result */}
+                      <div className="bg-slate-700/50 border-2 border-dashed border-slate-600/50 text-slate-300 px-3 py-2 rounded-lg text-xs font-bold shadow-sm whitespace-nowrap">
                         $ Input Cost
                       </div>
                       <MathOp icon={<Equal className="w-3 h-3" />} />
-                      <div className="bg-purple-500/20 border-2 border-dashed border-purple-400/50 text-purple-200 px-3 py-1.5 rounded-lg font-bold shadow-sm text-sm">
+                      
+                      {/* Total Requests - Matching Step 1 */}
+                      <div className="bg-purple-500/20 border-2 border-dashed border-purple-400/50 text-purple-200 px-3 py-2 rounded-lg font-bold shadow-sm text-xs whitespace-nowrap">
                         Total Requests
                       </div>
+                      
                       <MathOp icon={<X className="w-3 h-3" />} />
-                      <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-200 px-3 py-1.5 rounded-lg shadow-sm text-sm font-medium">
+                      <div className="bg-emerald-500/10 border border-emerald-500/30 text-emerald-200 px-3 py-2 rounded-lg shadow-sm text-xs font-bold whitespace-nowrap">
                         Avg. Input Tokens
                       </div>
                       <MathOp icon={<X className="w-3 h-3" />} />
-                      <div className="bg-amber-500/10 border border-amber-500/30 text-amber-200 px-3 py-1.5 rounded-lg shadow-sm text-sm font-medium">
+                      <div className="bg-amber-500/10 border border-amber-500/30 text-amber-200 px-3 py-2 rounded-lg shadow-sm text-xs font-bold whitespace-nowrap">
                         Token Price
                       </div>
                       <MathOp icon={<Divide className="w-3 h-3" />} />
-                      <div className="text-slate-400 font-bold px-1 text-sm">1M</div>
+                      <div className="text-slate-400 font-bold px-1 text-xs">1M</div>
                  </div>
 
                  {/* Connector: Plus (Continuous Line) */}
                  <div className="relative w-full flex justify-center py-2">
-                    <div className="absolute inset-y-0 w-px bg-slate-700 left-1/2 -translate-x-1/2"></div>
+                    <div className="absolute inset-y-0 w-px bg-slate-700 left-1/2 -translate-x-1/2 z-0"></div>
                     <MathOp icon={<Plus className="w-3 h-3" />} />
                  </div>
 
                  {/* Formula Line 2: Output Cost */}
-                 <div className="inline-flex flex-wrap items-center justify-center gap-2 bg-slate-800/30 p-2 rounded-lg border border-slate-800 relative z-20 font-mono">
-                      <div className="bg-slate-700/50 border border-slate-600/50 text-slate-300 px-3 py-1.5 rounded-lg text-sm font-bold shadow-sm">
+                 <div className="inline-flex flex-wrap items-center justify-center gap-2 bg-slate-800/30 px-3 py-2 rounded-lg border border-slate-800 relative z-20 font-mono">
+                      {/* Dashed Border for Intermediate Result */}
+                      <div className="bg-slate-700/50 border-2 border-dashed border-slate-600/50 text-slate-300 px-3 py-2 rounded-lg text-xs font-bold shadow-sm whitespace-nowrap">
                         $ Output Cost
                       </div>
                       <MathOp icon={<Equal className="w-3 h-3" />} />
-                      <div className="bg-purple-500/20 border-2 border-dashed border-purple-400/50 text-purple-200 px-3 py-1.5 rounded-lg font-bold shadow-sm text-sm">
+                      
+                      {/* Total Requests - Matching Step 1 */}
+                      <div className="bg-purple-500/20 border-2 border-dashed border-purple-400/50 text-purple-200 px-3 py-2 rounded-lg font-bold shadow-sm text-xs whitespace-nowrap">
                         Total Requests
                       </div>
+                      
                       <MathOp icon={<X className="w-3 h-3" />} />
-                      <div className="bg-pink-500/10 border border-pink-500/30 text-pink-200 px-3 py-1.5 rounded-lg shadow-sm text-sm font-medium">
+                      <div className="bg-pink-500/10 border border-pink-500/30 text-pink-200 px-3 py-2 rounded-lg shadow-sm text-xs font-bold whitespace-nowrap">
                         Avg. Output Tokens
                       </div>
                       <MathOp icon={<X className="w-3 h-3" />} />
-                      <div className="bg-amber-500/10 border border-amber-500/30 text-amber-200 px-3 py-1.5 rounded-lg shadow-sm text-sm font-medium">
+                      <div className="bg-amber-500/10 border border-amber-500/30 text-amber-200 px-3 py-2 rounded-lg shadow-sm text-xs font-bold whitespace-nowrap">
                         Token Price
                       </div>
                       <MathOp icon={<Divide className="w-3 h-3" />} />
-                      <div className="text-slate-400 font-bold px-1 text-sm">1M</div>
+                      <div className="text-slate-400 font-bold px-1 text-xs">1M</div>
                  </div>
 
                  {/* Connector: Equal (Continuous Line) */}
                  <div className="relative w-full flex justify-center py-4">
-                    <div className="absolute inset-y-0 w-px bg-slate-700 left-1/2 -translate-x-1/2"></div>
+                    <div className="absolute inset-y-0 w-px bg-slate-700 left-1/2 -translate-x-1/2 z-0"></div>
                     <MathOp icon={<Equal className="w-3 h-3" />} />
                  </div>
 
                  {/* Total Cost Box */}
                  <div className="relative z-20 group">
                     <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full opacity-50 group-hover:opacity-70 transition-opacity"></div>
-                    <div className="relative bg-slate-900 border-2 border-emerald-500/30 rounded-2xl p-4 sm:px-8 text-center shadow-2xl z-20">
+                    {/* Dashed Border for Calculated Result */}
+                    <div className="relative bg-emerald-500/10 border-2 border-dashed border-emerald-500/50 rounded-2xl p-4 sm:px-8 text-center shadow-2xl z-20">
                        <div className="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-1">Estimated Monthly Cost</div>
                        <div className="text-2xl sm:text-3xl font-bold text-emerald-400 tracking-tight">$ Total Cost</div>
                     </div>
                  </div>
 
-                 {/* Connector: Down to Step 3 (Continuous Line) */}
+                 {/* Connector: Down to Step 3 (Removed vertical line above pill) */}
                  <div className="relative w-full flex justify-center pt-6 pb-0">
-                    <div className="absolute top-0 bottom-0 w-px bg-slate-700 left-1/2 -translate-x-1/2"></div>
                     
-                    {/* Step 3 Indicator Pill - Centered on the line */}
-                    <div className="z-20 inline-flex items-center gap-2 bg-slate-800 rounded-full px-3 py-1 border border-slate-700 shadow-sm">
-                       <span className="w-4 h-4 rounded-full bg-amber-400 text-slate-900 flex items-center justify-center text-[10px] font-bold">3</span>
-                       <span className="text-[10px] text-slate-200 font-bold uppercase tracking-widest">Derived Metrics</span>
+                    {/* Step 3 Header - Pill Style */}
+                    <div className="z-20 inline-flex items-center gap-2 bg-slate-800 rounded-full px-4 py-1.5 border border-slate-700 shadow-sm">
+                       <span className="w-5 h-5 rounded-full bg-amber-400 text-slate-900 flex items-center justify-center text-xs font-bold shadow-lg shadow-amber-500/20">3</span>
+                       <span className="text-xs text-slate-200 font-bold uppercase tracking-widest">Derived Metrics</span>
                     </div>
                  </div>
 
@@ -193,16 +200,24 @@ export const SeoContent: React.FC = () => {
                          Unit Economics
                        </div>
                        <div className="flex flex-wrap items-center justify-center gap-2 w-full mt-2">
-                          <div className="text-emerald-400 font-bold font-mono text-sm">$ Total Cost</div>
+                          {/* Styled Total Cost Variable - Dashed Border */}
+                          <div className="bg-emerald-500/20 border-2 border-dashed border-emerald-500/40 text-emerald-200 px-3 py-1.5 rounded-lg shadow-sm font-mono text-xs font-bold">
+                            $ Total Cost
+                          </div>
                           <MathOp icon={<Divide className="w-3 h-3" />} />
-                          <div className="bg-indigo-500/10 border border-indigo-500/30 text-indigo-200 px-2 py-1 rounded text-xs">
+                          
+                          {/* Monthly Users - Matching Step 1 Style exactly */}
+                          <div className="bg-indigo-500/20 border border-indigo-500/40 text-indigo-100 px-3 py-1.5 rounded-lg shadow-sm font-mono text-xs font-bold">
                             Monthly Users
                           </div>
                        </div>
                        <div className="w-full h-px bg-slate-700/50"></div>
-                       <div className="flex items-center gap-2">
+                       <div className="flex items-center gap-3">
                          <MathOp icon={<Equal className="w-3 h-3" />} />
-                         <span className="text-indigo-300 font-bold text-lg">$ Cost Per User</span>
+                         {/* Dashed Border for Calculated Result */}
+                         <div className="bg-indigo-500/20 border-2 border-dashed border-indigo-500/50 text-indigo-200 px-4 py-2 rounded-xl shadow-lg shadow-indigo-500/10 text-sm font-bold tracking-wide">
+                            $ Cost Per User
+                         </div>
                        </div>
                     </div>
 
@@ -212,14 +227,20 @@ export const SeoContent: React.FC = () => {
                          Runway Analysis
                        </div>
                        <div className="flex flex-wrap items-center justify-center gap-2 w-full mt-2">
-                          <div className="text-emerald-400 font-bold font-mono text-sm">$ Total Cost</div>
+                          {/* Styled Total Cost Variable - Dashed Border */}
+                          <div className="bg-emerald-500/20 border-2 border-dashed border-emerald-500/40 text-emerald-200 px-3 py-1.5 rounded-lg shadow-sm font-mono text-xs font-bold">
+                            $ Total Cost
+                          </div>
                           <MathOp icon={<Divide className="w-3 h-3" />} />
                           <span className="text-slate-400 font-bold text-xs">30 Days</span>
                        </div>
                        <div className="w-full h-px bg-slate-700/50"></div>
-                       <div className="flex items-center gap-2">
+                       <div className="flex items-center gap-3">
                          <MathOp icon={<Equal className="w-3 h-3" />} />
-                         <span className="text-indigo-300 font-bold text-lg">$ Daily Average</span>
+                         {/* Dashed Border for Calculated Result */}
+                         <div className="bg-cyan-500/20 border-2 border-dashed border-cyan-500/50 text-cyan-200 px-4 py-2 rounded-xl shadow-lg shadow-cyan-500/10 text-sm font-bold tracking-wide">
+                           $ Daily Average
+                         </div>
                        </div>
                     </div>
                  </div>
