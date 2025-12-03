@@ -17,12 +17,19 @@ export const InputField: React.FC<InputFieldProps> = ({ label, value, onChange, 
 
   // Sync local state when prop changes externally (but be careful not to override while typing)
   useEffect(() => {
+    // If the displayed value is empty and the actual value is 0, 
+    // it implies the user is clearing the input or focusing on it. 
+    // We should not force it back to "0" in this specific case.
+    if (displayValue === '' && value === 0) {
+      return;
+    }
+
     // We only update if the parsed local value is different from the prop value
     // to avoid interrupting active typing (like "1.0" being turned into "1")
     if (parseFloat(displayValue) !== value) {
        setDisplayValue(value.toString());
     }
-  }, [value]);
+  }, [value, displayValue]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const rawVal = e.target.value;
@@ -66,6 +73,14 @@ export const InputField: React.FC<InputFieldProps> = ({ label, value, onChange, 
     onChange(parsed);
   };
 
+  const handleFocus = () => {
+    // UX improvement: If value is 0, clear it on focus so user can type immediately
+    // without having to delete the '0'.
+    if (value === 0) {
+      setDisplayValue('');
+    }
+  };
+
   // Determine if the value is functionally 0 (for styling)
   const isZero = parseFloat(displayValue) === 0 || displayValue === '';
 
@@ -85,6 +100,7 @@ export const InputField: React.FC<InputFieldProps> = ({ label, value, onChange, 
         value={displayValue}
         onChange={handleChange}
         onBlur={handleBlur}
+        onFocus={handleFocus}
         className={`
           block w-full rounded-lg border-slate-200 bg-white p-2.5 text-sm shadow-sm 
           focus:border-indigo-500 focus:ring-indigo-500 transition-colors border outline-none
