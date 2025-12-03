@@ -7,8 +7,8 @@
     <meta name="description" content="The professional AI API Cost Calculator. Estimate Monthly Active User (MAU) costs, unit economics, and burn rate for OpenAI GPT, Anthropic Claude, and Google Gemini APIs." />
     <meta name="keywords" content="AI cost calculator, LLM api pricing, GPT-5 cost estimator, Claude 4.5 pricing calculator, Gemini 3 API cost, SaaS unit economics, token calculator" />
     
-    <!-- Branding: SVG Favicon matching the Header (Indigo background, White Calculator) -->
-    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%234f46e5"/><path fill="white" d="M28 20h44c4.4 0 8 3.6 8 8v44c0 4.4-3.6 8-8 8H28c-4.4 0-8-3.6-8-8V28c0-4.4 3.6-8 8-8zm5 12h34v12H33V32zm0 18h8v8h-8v-8zm13 0h8v8h-8v-8zm13 0h8v8h-8v-8zm-26 13h8v8h-8v-8zm13 0h8v8h-8v-8zm13 0h8v8h-8v-8z"/></svg>'>
+    <!-- Branding: SVG Favicon matching the Header (Lucide Calculator Icon on Indigo) -->
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="%234f46e5"/><g transform="translate(8,8)" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></g></svg>'>
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -70,9 +70,19 @@
       "description": "A calculator tool for developers to estimate monthly costs of using Large Language Model APIs like OpenAI GPT, Anthropic Claude, and Google Gemini."
     }
     </script>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1"
+  }
+}
+</script>
 </head>
   <body class="bg-slate-50 text-slate-900 antialiased selection:bg-indigo-100 selection:text-indigo-900">
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
