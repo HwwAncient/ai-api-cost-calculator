@@ -27,24 +27,58 @@ export const Calculator: React.FC = () => {
   const [isWordMode, setIsWordMode] = useState<boolean>(false);
   const [activePresetId, setActivePresetId] = useState<string | null>(null);
 
-  const handleInputChange = (field: keyof UserInputs, value: number) => {
-    // Only clear the preset if the user changes a "Behavioral" input.
-    // MAU is a "Scale" input, so changing it shouldn't detach the behavioral scenario.
-    if (field !== 'mau') {
-      setActivePresetId(null);
+  // Helper to count decimal places to maintain precision consistency
+  const countDecimals = (value: number) => {
+    if (Math.floor(value) === value) return 0;
+    const str = value.toString();
+    if (str.indexOf('.') !== -1) {
+      return str.split('.')[1].length;
     }
+    return 0;
+  };
 
-    // Enforce limits for active days
+  const handleInputChange = (field: keyof UserInputs, value: number) => {
+    let finalValue = value;
+
+    // Enforce limits for active days (0-31)
     if (field === 'activeDays') {
-      value = Math.max(1, Math.min(30, value));
+      finalValue = Math.max(0, Math.min(31, value));
+    } else {
+      // General safety check for negatives on other fields
+      finalValue = Math.max(0, value);
     }
-    setInputs(prev => ({ ...prev, [field]: value }));
+    
+    // Only update state if the value has actually changed.
+    // This prevents deactivating the preset when the user clicks into an input and exits without changes,
+    // or adds a decimal point that doesn't change the numeric value yet.
+    if (inputs[field] !== finalValue) {
+      // Only clear the preset if the user changes a "Behavioral" input.
+      // MAU is a "Scale" input, so changing it shouldn't detach the behavioral scenario.
+      if (field !== 'mau') {
+        setActivePresetId(null);
+      }
+      setInputs(prev => ({ ...prev, [field]: finalValue }));
+    }
   };
 
   const handleTokenInputChange = (field: 'avgInputTokens' | 'avgOutputTokens', value: number) => {
-    // Conversion Logic: 1000 Tokens = 750 Words.
-    const finalValue = isWordMode ? Math.round(value / 0.75) : value;
-    handleInputChange(field, finalValue);
+    // If in Word Mode, the user is inputting Words. We need to convert to Tokens for state.
+    // 1000 Tokens = 750 Words (Ratio 0.75).
+    // Tokens = Words / 0.75
+    
+    if (isWordMode) {
+      // Requirement: Conversion must retain same decimal places as input.
+      const inputDecimals = countDecimals(value);
+      const rawTokens = value / 0.75;
+      
+      // Fix precision to match input decimals
+      const finalTokens = parseFloat(rawTokens.toFixed(inputDecimals));
+      
+      handleInputChange(field, finalTokens);
+    } else {
+      // Input is already Tokens
+      handleInputChange(field, value);
+    }
   };
 
   const handlePresetClick = (presetId: string, presetData: Partial<UserInputs>) => {
@@ -84,7 +118,16 @@ export const Calculator: React.FC = () => {
   }, [inputs, selectedModels]);
 
   const getDisplayValue = (tokenValue: number) => {
-    return isWordMode ? Math.round(tokenValue * 0.75) : tokenValue;
+    if (isWordMode) {
+      // Convert Tokens -> Words for display
+      // Words = Tokens * 0.75
+      const inputDecimals = countDecimals(tokenValue);
+      const rawWords = tokenValue * 0.75;
+      
+      // Requirement: Conversion must retain same decimal places as source.
+      return parseFloat(rawWords.toFixed(inputDecimals));
+    }
+    return tokenValue;
   };
 
   // Map icons to presets for better visuals
@@ -176,9 +219,9 @@ export const Calculator: React.FC = () => {
                       value={inputs.activeDays} 
                       onChange={(v) => handleInputChange('activeDays', v)}
                       icon={<Calendar className="w-4 h-4" />}
-                      min={1}
-                      max={30}
-                      helpText="How many days does a user visit? (1-30)"
+                      min={0}
+                      max={31}
+                      helpText="How many days does a user visit? (0-31)"
                   />
 
                   <InputField 
