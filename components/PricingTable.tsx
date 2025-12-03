@@ -60,9 +60,9 @@ export const PricingTable: React.FC<PricingTableProps> = ({ selectedModels = [] 
         <table className="w-full text-sm text-left border-collapse">
           <thead className="bg-slate-50 text-slate-500 font-medium">
             <tr>
-              {/* Provider: Added border-l-4 border-slate-50 to match body row structure and prevent white gap */}
+              {/* Provider: Removed border-l-4 to align with new pill design */}
               <th 
-                className="px-4 py-3 cursor-pointer hover:bg-slate-100 transition-colors whitespace-nowrap w-[1%] border-l-4 border-slate-50 hover:border-slate-100" 
+                className="px-4 py-3 cursor-pointer hover:bg-slate-100 transition-colors whitespace-nowrap w-[1%]" 
                 onClick={() => handleSort('provider')}
               >
                 <div className="flex items-center gap-1">Provider <ArrowUpDown className="w-3 h-3 text-slate-400" /></div>
@@ -120,19 +120,28 @@ export const PricingTable: React.FC<PricingTableProps> = ({ selectedModels = [] 
                 <tr 
                   key={model.id} 
                   className={`
-                    transition-colors
+                    transition-colors relative
                     ${isSelected 
                       ? 'bg-indigo-50/60' 
                       : 'hover:bg-slate-50/50'}
                   `}
                 >
-                  {/* Highlighting via border on the first cell to avoid border-collapse issues */}
-                  <td className={`px-4 py-3 font-medium text-slate-900 whitespace-nowrap border-l-4 ${isSelected ? 'border-indigo-500' : 'border-transparent'}`}>
-                    <span className="flex items-center gap-2">
+                  {/* First cell with Inset Full-Height Bar */}
+                  <td className="relative px-4 py-3 font-medium text-slate-900 whitespace-nowrap">
+                    {/* The Bar: Inset, full height (almost), rounded */}
+                    <div 
+                      className={`
+                        absolute left-1 top-0.5 bottom-0.5 w-1.5 rounded-full bg-indigo-600 transition-all duration-300 ease-out origin-center
+                        ${isSelected ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-50'}
+                      `}
+                    />
+                    
+                    <span className="flex items-center gap-2 pl-1">
                       <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: model.color }}></span>
                       {model.provider}
                     </span>
                   </td>
+
                   <td className="px-4 py-3 font-mono text-slate-600 whitespace-nowrap font-medium">{model.name}</td>
                   
                   <td className="px-4 py-3 text-left text-slate-700 whitespace-nowrap">

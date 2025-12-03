@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { AVAILABLE_MODELS } from '../constants';
+import { ModelPricing } from '../types';
 import { Check, Scale } from 'lucide-react';
 
 interface ModelSelectorProps {
@@ -14,7 +15,7 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
   
   // Group models by provider
   const groupedModels = useMemo(() => {
-    const groups: Record<string, typeof AVAILABLE_MODELS> = {};
+    const groups: Record<string, ModelPricing[]> = {};
     AVAILABLE_MODELS.forEach(model => {
       if (!groups[model.provider]) {
         groups[model.provider] = [];
@@ -46,7 +47,7 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
   };
 
   // --- Logic for Group/Provider Toggle ---
-  const handleGroupToggle = (providerModels: typeof AVAILABLE_MODELS) => {
+  const handleGroupToggle = (providerModels: ModelPricing[]) => {
     const groupIds = providerModels.map(m => m.id);
     const isGroupSelected = groupIds.every(id => selectedModels.includes(id));
 
@@ -77,6 +78,7 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
         {/* Global Toggle: 'Select All' / 'Clear' */}
         <button 
           onClick={handleGlobalToggle}
+          type="button"
           className={`
             text-xs font-medium px-3 py-1.5 rounded-lg transition-colors
             ${isGlobalAllSelected 
@@ -94,7 +96,8 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
         <div className="px-6 pb-6 pt-2 space-y-6">
           {Object.entries(groupedModels).map(([provider, models]) => {
             // Determine group state for the header button
-            const isGroupSelected = models.every(m => selectedModels.includes(m.id));
+            const typedModels = models as ModelPricing[];
+            const isGroupSelected = typedModels.every(m => selectedModels.includes(m.id));
 
             return (
               <div key={provider}>
@@ -106,8 +109,9 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      handleGroupToggle(models);
+                      handleGroupToggle(typedModels);
                     }}
+                    type="button"
                     className={`
                       text-[10px] font-medium px-2 py-0.5 rounded transition-colors
                       ${isGroupSelected
@@ -120,7 +124,7 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
                 </div>
 
                 <div className="space-y-2">
-                  {models.map((model) => {
+                  {typedModels.map((model) => {
                     const isSelected = selectedModels.includes(model.id);
                     return (
                       <div 

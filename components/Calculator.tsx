@@ -1,5 +1,9 @@
 import React, { useState, useMemo } from 'react';
-import { Users, Activity, ArrowDownToLine, ArrowUpFromLine, Settings2, TrendingDown, TrendingUp, Calendar, Zap, FileText, Hash, CircleDollarSign, BarChart3 } from 'lucide-react';
+import { 
+  Users, Activity, ArrowDownToLine, ArrowUpFromLine, Settings2, 
+  TrendingDown, TrendingUp, Calendar, Zap, FileText, Hash, 
+  CircleDollarSign, BarChart3, MessageSquareText, Terminal, Heart, Search 
+} from 'lucide-react';
 import { AVAILABLE_MODELS, DEFAULT_INPUTS, SCENARIO_PRESETS } from '../constants';
 import { UserInputs, CostResult } from '../types';
 import { ComparisonChart } from './ComparisonChart';
@@ -82,6 +86,14 @@ export const Calculator: React.FC = () => {
     return isWordMode ? Math.round(tokenValue * 0.75) : tokenValue;
   };
 
+  // Map icons to presets for better visuals
+  const PRESET_ICONS: Record<string, React.ReactNode> = {
+    'support-bot': <MessageSquareText className="w-5 h-5" />,
+    'coding-agent': <Terminal className="w-5 h-5" />,
+    'companion': <Heart className="w-5 h-5" />,
+    'rag-search': <Search className="w-5 h-5" />,
+  };
+
   return (
     <div className="space-y-12">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -92,31 +104,45 @@ export const Calculator: React.FC = () => {
             {/* Presets Section */}
             <div className="mb-8">
                <div className="flex items-center gap-3 mb-4">
-                  <div className="bg-amber-50 p-2 rounded-lg">
-                    <Zap className="w-5 h-5 text-amber-500 fill-amber-500" />
+                  <div className="bg-amber-100 p-2 rounded-lg">
+                    <Zap className="w-5 h-5 text-amber-600 fill-amber-600" />
                   </div>
-                  <h3 className="text-lg font-semibold text-slate-800">Quick Scenarios</h3>
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-800 leading-tight">Quick Scenarios</h3>
+                    <p className="text-[11px] text-slate-400 font-medium">Auto-fill usage patterns</p>
+                  </div>
                </div>
-               <div className="grid grid-cols-2 gap-2">
+               
+               <div className="grid grid-cols-2 gap-3">
                  {SCENARIO_PRESETS.map(preset => {
                    const isActive = activePresetId === preset.id;
+                   const Icon = PRESET_ICONS[preset.id] || <Zap className="w-5 h-5" />;
+                   
                    return (
                      <button
                        key={preset.id}
                        onClick={() => handlePresetClick(preset.id, preset.data)}
-                       title={`${preset.name}: ${preset.description}`} 
                        className={`
-                         text-left px-3 py-2 rounded-lg border transition-all group relative
+                         group relative flex flex-col items-start gap-3 p-3.5 rounded-xl border text-left transition-all duration-200
                          ${isActive 
                            ? 'bg-indigo-50 border-indigo-500 shadow-sm ring-1 ring-indigo-500' 
-                           : 'border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/50'}
+                           : 'bg-white border-slate-200 hover:border-indigo-300 hover:shadow-md hover:-translate-y-0.5'}
                        `}
                      >
-                       <div className={`text-xs font-semibold ${isActive ? 'text-indigo-700' : 'text-slate-700 group-hover:text-indigo-700'}`}>
-                         {preset.name}
+                       <div className={`
+                         p-2 rounded-lg transition-colors
+                         ${isActive ? 'bg-indigo-200 text-indigo-700' : 'bg-slate-100 text-slate-500 group-hover:bg-indigo-50 group-hover:text-indigo-600'}
+                       `}>
+                         {Icon}
                        </div>
-                       <div className={`text-[10px] truncate ${isActive ? 'text-indigo-600/80' : 'text-slate-400'}`}>
-                         {preset.description}
+                       
+                       <div>
+                         <div className={`font-bold text-sm mb-1 ${isActive ? 'text-indigo-900' : 'text-slate-800'}`}>
+                           {preset.name}
+                         </div>
+                         <div className={`text-[11px] leading-snug ${isActive ? 'text-indigo-700/90' : 'text-slate-500'}`}>
+                           {preset.description}
+                         </div>
                        </div>
                      </button>
                    );
@@ -129,6 +155,7 @@ export const Calculator: React.FC = () => {
                 <div className="bg-indigo-50 p-2 rounded-lg">
                   <Settings2 className="w-5 h-5 text-indigo-600" />
                 </div>
+                {/* Reverted to single line title for cleanliness */}
                 <h2 className="text-lg font-semibold text-slate-800">Usage Parameters</h2>
               </div>
               
@@ -211,6 +238,7 @@ export const Calculator: React.FC = () => {
                 <div className="bg-emerald-50 p-2 rounded-lg">
                   <CircleDollarSign className="w-5 h-5 text-emerald-600" />
                 </div>
+                {/* Reverted to single line title for cleanliness */}
                 <h2 className="text-lg font-semibold text-slate-800">Estimated Monthly Cost</h2>
               </div>
               <span className="text-sm font-normal text-slate-400 bg-slate-50 px-2 py-1 rounded">
@@ -277,7 +305,13 @@ export const Calculator: React.FC = () => {
                 <div className="bg-indigo-50 p-2 rounded-lg">
                   <BarChart3 className="w-5 h-5 text-indigo-600" />
                 </div>
-                <h2 className="text-lg font-semibold text-slate-800">Cost Comparison Visualizer</h2>
+                <div>
+                  <h2 className="text-lg font-semibold text-slate-800 leading-tight">Cost Comparison Visualizer</h2>
+                  {/* Updated longer, more meaningful subtitle for visual balance */}
+                  <p className="text-[11px] text-slate-400 font-medium mt-0.5">
+                    Visualize cost disparities across providers to identify the most capital-efficient models for your scale.
+                  </p>
+                </div>
              </div>
              <ComparisonChart data={results} key={results.length} />
           </div>
