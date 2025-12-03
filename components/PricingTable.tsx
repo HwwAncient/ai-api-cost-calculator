@@ -52,11 +52,10 @@ export const PricingTable: React.FC<PricingTableProps> = ({ selectedModels = [] 
       {/* 
         Container config:
         1. overflow-x-auto: Enables horizontal scrolling.
-        2. touch-pan-x: Optimizes touch interactions on mobile.
-        Note: We rely on global `overscroll-behavior-x: none` in index.html to prevent 
-        browser history navigation (swipe back) on Mac trackpads.
+        2. touch-pan-x REMOVED: It was preventing vertical page scrolling on mobile.
+           We rely on default browser behavior to handle vertical vs horizontal intent.
       */}
-      <div className="overflow-x-auto touch-pan-x">
+      <div className="overflow-x-auto">
         <table className="w-full text-sm text-left border-collapse">
           <thead className="bg-slate-50 text-slate-500 font-medium">
             <tr>

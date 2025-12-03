@@ -37,11 +37,15 @@ const App: React.FC = () => {
 
         <Calculator />
 
+        {/* AdPlaceholder currently hidden for better UX until ads are connected 
         <AdPlaceholder location="middle" />
+        */}
 
         <SeoContent />
 
+        {/* AdPlaceholder currently hidden for better UX until ads are connected 
         <AdPlaceholder location="bottom" />
+        */}
       </main>
 
       <Footer />
