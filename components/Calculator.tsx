@@ -265,7 +265,7 @@ export const Calculator: React.FC = () => {
             </div>
           </div>
 
-          <div className="lg:h-[calc(100vh-32rem)] min-h-[500px]">
+          <div className="h-[500px] lg:h-[calc(100vh-32rem)] min-h-[500px]">
             <ModelSelector 
               selectedModels={selectedModels} 
               onSelectionChange={setSelectedModels}
