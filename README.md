@@ -1,4 +1,4 @@
-# AI API Cost Simulator
+# AI API Cost Calculator
 
 Forecast your LLM API costs with precision. This tool allows you to translate business metrics like **Monthly Active Users (MAU)** into accurate infrastructure forecasts and unit economics for major AI providers including OpenAI, Anthropic, and Google Gemini.
 
@@ -41,7 +41,7 @@ Follow these steps to run the project locally:
 1.  **Clone the repository**
     ```bash
     git clone <repository-url>
-    cd ai-api-cost-simulator
+    cd ai-api-cost-calculator
     ```
 
 2.  **Install dependencies**
