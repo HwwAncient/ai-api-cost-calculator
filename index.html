@@ -4,27 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI API Cost Calculator | SaaS Unit Economics & Pricing</title>
-    <meta name="description" content="The professional AI API Cost Calculator. Estimate Monthly Active User (MAU) costs, unit economics, and burn rate for OpenAI GPT, Anthropic Claude, and Google Gemini APIs." />
-    <meta name="keywords" content="AI cost calculator, LLM api pricing, GPT-5 cost estimator, Claude 4.5 pricing calculator, Gemini 3 API cost, SaaS unit economics, token calculator" />
-    
+    <meta name="description" content="The professional AI API Cost Calculator. Estimate, compare and visualize your Monthly Active User (MAU) costs, unit economics, and burn rate for OpenAI GPT, Anthropic Claude, and Google Gemini APIs." />
+    <meta name="keywords" content="AI cost calculator, LLM api pricing, GPT-5 cost estimator, Claude 4.5 pricing calculator, Gemini 3 API cost, SaaS unit economics, Token calculator, Cost visualization, Cost comparison" />
+
     <!-- Branding: SVG Favicon matching the Header (Lucide Calculator Icon on Indigo) -->
     <link rel="icon" type="image/svg+xml" href="https://aiapicalculator.com/favicon.svg" />
-    
-    <!-- Branding: Apple Touch Icon (for mobile home screens and tools like Toby that prefer this tag) -->
-    <link rel="apple-touch-icon" href="https://aiapicalculator.com/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://aiapicalculator.com/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="https://aiapicalculator.com/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="https://aiapicalculator.com/apple-touch-icon.png" />
+    <link rel="manifest" href="https://aiapicalculator.com/site.webmanifest" />
+    <link rel="icon" href="https://aiapicalculator.com/favicon.ico" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aiapicalculator.com/" />
+    <meta property="og:site_name" content="AI API Cost Calculator" />
     <meta property="og:title" content="AI API Cost Calculator | Calculate SaaS Unit Economics" />
     <meta property="og:description" content="Transparently calculate your AI infrastructure costs. Compare models like GPT-5 and Gemini 3 to find your break-even point." />
-    <meta property="og:image" content="https://picsum.photos/1200/630" />
+    <meta property="og:image" content="https://aiapicalculator.com/cover.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Dashboard preview of AI API Cost Calculator showing cost comparisons" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="AI API Cost Calculator" />
-    <meta property="twitter:description" content="Estimate your AI infrastructure costs before you build." />
-    <meta property="twitter:image" content="https://picsum.photos/1200/630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:domain" content="aiapicalculator.com" />
+    <meta name="twitter:url" content="https://aiapicalculator.com/" />
+    <meta name="twitter:title" content="AI API Cost Calculator" />
+    <meta name="twitter:description" content="Estimate your AI infrastructure costs before you build." />
+    <meta name="twitter:image" content="https://aiapicalculator.com/cover.png" />
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -70,14 +79,22 @@
         "price": "0",
         "priceCurrency": "USD"
       },
-      "description": "A calculator tool for developers to estimate monthly costs of using Large Language Model APIs like OpenAI GPT, Anthropic Claude, and Google Gemini."
+      "description": "A calculator tool for developers to estimate, compare and visualize your monthly costs of using Large Language Model APIs like OpenAI GPT, Anthropic Claude, and Google Gemini."
     }
     </script>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1"
+  }
+}
+</script>
 </head>
-  
   <body class="bg-slate-50 text-slate-900 antialiased selection:bg-indigo-100 selection:text-indigo-900">
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
   </body>
-  
 </html>
