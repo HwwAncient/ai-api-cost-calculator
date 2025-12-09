@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
           <div className="flex gap-6 text-sm text-slate-500">
             <a href="#" className="hover:text-slate-900">Privacy</a>
             <a href="#" className="hover:text-slate-900">Terms</a>
-            <a href="#" className="hover:text-slate-900">Contact</a>
+            <a href="mailto:wanweihe2019@gmail.com" className="hover:text-slate-900">Contact</a>
           </div>
         </div>
         <div className="mt-8 text-center text-xs text-slate-400 max-w-2xl mx-auto">

@@ -98,3 +98,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
+
+## 📧 Contact
+For personal communication related to this project, please contact Wanwei He (`wanweihe2019@gmail.com`).
