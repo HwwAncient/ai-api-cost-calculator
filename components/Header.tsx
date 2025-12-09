@@ -12,10 +12,24 @@ export const Header: React.FC = () => {
           <span className="text-lg font-bold text-slate-900 tracking-tight">AI API Cost Calculator</span>
         </div>
         
-        {/* Removed placeholder links to keep the interface professional and production-ready */}
+        {/* Product Hunt Badge - Scaled to fit Header */}
         <div className="flex items-center gap-4">
-           {/* Future auth or real links can go here */}
+          <a 
+            href="https://www.producthunt.com/products/ai-api-cost-calculator?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-ai-api-cost-calculator" 
+            target="_blank" 
+            rel="noreferrer"
+            className="flex items-center transition-opacity hover:opacity-80"
+          >
+            <img 
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1048172&theme=light&t=1765292513149" 
+              alt="AI API Cost Calculator - Product Hunt" 
+              style={{ width: '180px', height: '38px' }} 
+              width="180" 
+              height="38" 
+            />
+          </a>
         </div>
+
       </div>
     </header>
   );

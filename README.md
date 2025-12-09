@@ -1,5 +1,8 @@
 # AI API Cost Calculator
 
+[![Product Hunt](https://img.shields.io/badge/Product_Hunt-Featured-FF6154?logo=product-hunt&logoColor=white)](https://www.producthunt.com/products/ai-api-cost-calculator)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 Forecast your LLM API costs with precision. This tool allows you to translate business metrics like **Monthly Active Users (MAU)** into accurate infrastructure forecasts and unit economics for major AI providers including OpenAI, Anthropic, and Google Gemini.
 
 ## 🚀 Key Features
