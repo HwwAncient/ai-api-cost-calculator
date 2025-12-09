@@ -9,6 +9,14 @@ export const Footer: React.FC = () => {
             © {new Date().getFullYear()} AI API Cost Calculator. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-slate-500">
+            <a 
+              href="https://github.com/HwwAncient/ai-api-cost-calculator" 
+              target="_blank" 
+              rel="noreferrer"
+              className="hover:text-slate-900"
+            >
+              GitHub
+            </a>
             <a href="#" className="hover:text-slate-900">Privacy</a>
             <a href="#" className="hover:text-slate-900">Terms</a>
             <a href="mailto:wanweihe2019@gmail.com" className="hover:text-slate-900">Contact</a>

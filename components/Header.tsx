@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calculator } from 'lucide-react';
+import { Calculator, Github } from 'lucide-react';
 
 export const Header: React.FC = () => {
   return (
@@ -9,11 +9,20 @@ export const Header: React.FC = () => {
           <div className="bg-indigo-600 p-1.5 rounded-lg">
             <Calculator className="h-5 w-5 text-white" />
           </div>
-          <span className="text-lg font-bold text-slate-900 tracking-tight">AI API Cost Calculator</span>
+          <span className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">AI API Cost Calculator</span>
         </div>
         
         {/* Product Hunt Badge - Scaled to fit Header */}
         <div className="flex items-center gap-4">
+          <a 
+            href="https://github.com/HwwAncient/ai-api-cost-calculator" 
+            target="_blank" 
+            rel="noreferrer"
+            className="hidden sm:block text-slate-500 transition-colors hover:text-slate-900"
+            aria-label="View source on GitHub"
+          >
+            <Github className="h-6 w-6" />
+          </a>
           <a 
             href="https://www.producthunt.com/products/ai-api-cost-calculator?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-ai-api-cost-calculator" 
             target="_blank" 
@@ -23,7 +32,7 @@ export const Header: React.FC = () => {
             <img 
               src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1048172&theme=light&t=1765292513149" 
               alt="AI API Cost Calculator - Product Hunt" 
-              style={{ width: '180px', height: '38px' }} 
+              className="w-32 h-auto sm:w-[180px] sm:h-[38px]"
               width="180" 
               height="38" 
             />
